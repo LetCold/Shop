@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 ">
+      <div class="card shadow">
+        <div class="card-body text-center">
+          <h3 class="card-title">Tổng thu nhập Tháng {{getMonth()}}</h3>
+          <h3 class="card-title">{{format(amount)}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-body text-center">
+          <h3 class="card-title">Số lượng đã bán ra</h3>
+          <h3 class="card-title">{{count}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-1">
+  <h2 class="text-center mb-4 mt-3">Danh sách top các vật phẩm bán ra</h2>
+
+  <table class="table custom-table text-center shadow ">
+    <thead>
+      <tr>
+        <th scope="col">Stt</th>
+        <th scope="col">Ảnh</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Giá</th>
+        <th scope="col">Loại</th>
+        <th scope="col">Đã bán</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <th scope="row" class="align-middle">{{ item.id }}</th>
+        <td><img [src]="'http://localhost:8080/static/images/'+item.image" alt="Item" class="img-thumbnail" width="70px"></td>
+        <td class="align-middle">{{ item.name }}</td>
+        <td class="align-middle">{{ format(item.price) }}</td>
+        <td class="align-middle">{{ item.type.name }}</td>
+        <td class="align-middle">{{ item.count }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

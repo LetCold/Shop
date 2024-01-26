@@ -1,0 +1,40 @@
+<div class="container-fluid h-100">
+  <div class="row h-100 justify-content-center align-items-center vh-100">
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="card-title text-center">Đăng Nhập</h2>
+          <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                [(ngModel)]="loginForm.email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Mật Khẩu:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                [(ngModel)]="loginForm.password"
+                name="password"
+                required
+              />
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-block w-100">
+                Hoàn Tất
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

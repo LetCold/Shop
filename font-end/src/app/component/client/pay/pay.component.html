@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Payment Form</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form>
+        <div class="form-group">
+          <label for="address">Địa chỉ:</label>
+          <input type="text" class="form-control" id="address" placeholder="Địa chỉ" [(ngModel)]="buyForm.location" name="location" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Số điện thoại:</label>
+          <input type="tel" class="form-control" id="phone" placeholder="Số điện thoại" [(ngModel)]="buyForm.numberPhone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+          <label for="note">Ghi chú:</label>
+          <textarea class="form-control" id="note" rows="3" placeholder="Ghi chú" [(ngModel)]="buyForm.note" name="note"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-2" (click)="paymet()">Thanh toán</button>
+      </form>
+    </div>
+  </div>
+</div>

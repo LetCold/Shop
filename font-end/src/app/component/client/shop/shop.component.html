@@ -1,0 +1,38 @@
+<div class="container" >
+
+  <div class="row">
+
+    <div class="col-md-3 position-relative">
+      <div class="mb-3 d-flex">
+        <button class="btn  bg-white text-black mx-1 shadow" (click)="setType(1)">Mới Nhất</button>
+        <button class="btn  bg-white text-black mx-1 shadow" (click)="setType(2)">Cũ Nhất</button>
+        <div class="dropdown shadow" >
+          <button class="btn  dropdown-toggle bg-white text-black h-100" type="button" id="categoryDropdown"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Giá
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+            <li><a class="dropdown-item"(click)="setType(3)">Giá: Thấp đến cao</a></li>
+            <li><a class="dropdown-item" (click)="setType(4)">Giá: Cao đến Thấp</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row" id="shop" *ngIf="dataLoaded">
+      <div class="col-6 col-md-2 d-flex flex-column" *ngFor="let item of items">
+        <div class="card shadow d-flex flex-column h-100">
+          <a [routerLink]="'/item/' + item.id" class="nav-link">
+            <img [src]="'http://localhost:8080/static/images/'+item.image" class="card-img-top"
+              alt="{{ item.name }} image">
+            <div class="card-body text-center mt-auto">
+              <p class="card-title text-nowrap overflow-hidden" >{{ item.name }}</p>
+
+              <p class="card-text">{{ format(item.price)}}</p>
+              <p class="card-text">Đã bán: {{item.count}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,56 @@
+<div class="container-fluid h-100">
+  <div class="row h-100 justify-content-center align-items-center vh-100">
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="card-title text-center">Đăng Kí</h2>
+          <form (ngSubmit)="onSubmit()">
+
+            <div class="mb-3 row">
+              <div class="col">
+                <label for="firstName" class="form-label">Họ:</label>
+                <input type="text" class="form-control" id="firstName" [(ngModel)]="regiserForm.firstName" name="firstName" required>
+              </div>
+
+              <div class="col">
+                <label for="lastName" class="form-label">Tên:</label>
+                <input type="text" class="form-control" id="lastName" [(ngModel)]="regiserForm.lastName" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="gender" class="form-label">Giới Tính:</label>
+              <select class="form-select" id="gender" [(ngModel)]="regiserForm.gender" name="gender" required>
+                <option value="-1" disabled>Chọn giới tính</option>
+                <option value="0">Nam</option>
+                <option value="1">Nữ</option>
+                <option value="2">Khác</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" [(ngModel)]="regiserForm.email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Mật khẩu:</label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="password" [(ngModel)]="regiserForm.password" name="password" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="repassword" class="form-label">Nhập lại mật khẩu:</label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="repassword" [(ngModel)]="regiserForm.rePassword" name="repassword" required>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-block w-100">Hoàn Tất</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

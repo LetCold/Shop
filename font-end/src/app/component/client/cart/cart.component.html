@@ -1,0 +1,49 @@
+<div class="container mt-5" *ngIf="dataLoaded">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">Giỏ hàng</h2>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Chọn</th>
+              <th scope="col">Sản phẩm</th>
+              <th scope="col">Hình ảnh</th>
+              <th scope="col">Số lượng</th>
+              <th scope="col">Đơn giá</th>
+              <th scope="col">Tổng cộng</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let cart of cartItems">
+              <td class="align-middle">
+                <input type="checkbox" [(ngModel)]="cart.selected"/>
+              </td>
+              <td class="align-middle">{{ cart.item.name }}</td>
+              <td>
+                <img src="http://localhost:8080/static/images/{{ cart.item.image }}" alt="{{ cart.item.name }}" class="img-thumbnail" style="max-width: 80px;">
+              </td>
+              <td class="align-middle">
+                <div class="custom-input-group">
+                  <button class="btn btn-outline-secondary" (click)="decrement(cart)">-</button>
+                  <input type="text" class="form-control custom-input" [(ngModel)]="cart.count" (change)="onInputChange($event, cart)">
+                  <button class="btn btn-outline-secondary" (click)="increment(cart)">+</button>
+                </div>
+              </td>
+              <td class="align-middle">{{ formatNumber(cart.item.price) }}</td>
+              <td class="align-middle">{{ formatNumber(cart.item.price * cart.count)}}</td>
+              <td class="align-middle">
+                <button class="btn btn-danger btn-sm" (click)="deleteItemCart(cart)">Xóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-end mt-2">
+        <h2>Tổng tiền: {{ this.formatNumber(getTotal())}}</h2>
+        <button class="btn btn-primary" (click)="checkout()">Tiếp theo</button>
+      </div>
+    </div>
+  </div>
+</div>

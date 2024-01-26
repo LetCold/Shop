@@ -1,0 +1,8 @@
+.custom-input-group {
+  display: flex;
+  align-items: center;
+}
+
+.custom-input {
+  width: 50px; /* Điều chỉnh kích thước theo ý muốn */
+}

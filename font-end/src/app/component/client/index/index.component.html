@@ -1,0 +1,59 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Logo</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <form class="form-inline my-2 my-lg-0 d-flex">
+              <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchKeyword" name="search">
+              <button class="btn btn-outline-success mr-sm-3" type="submit" (click)="submitSearch()"><i class="bi bi-search"></i></button>
+            </form>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/shop/1">Thời Trang</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/shop/2">Học Tập</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/shop/3">Đồ Chơi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/shop/4">Văn Phòng</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto  mt-3 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/cart"><i class="bi bi-cart"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login" *ngIf="!isLogin()">Đăng nhập</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register" *ngIf="!isLogin()">Đăng kí</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()" *ngIf="isLogin()" style="cursor: pointer;">Đăng Xuất</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="container mt-3">
+    <router-outlet></router-outlet>
+  </section>
+</main>

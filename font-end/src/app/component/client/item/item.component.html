@@ -1,0 +1,27 @@
+<div class="container-fluid my-5 animate__animated animate__slideInLeft" *ngIf="load">
+  <div class="row">
+    <div class="col-md-4 ">
+      <img src="http://localhost:8080/static/images/{{item.image}}" alt="Product Image" class="img-fluid shadow">
+    </div>
+    <div class="col-md-3">
+      <div class="card mt-4">
+        <div class="card-body shadow">
+          <h3 class="card-title text-center ">{{item.name}}</h3>
+
+          <p class="card-text text-center">{{item.description}}</p>
+
+          <h4 class="card-title text-center mt-4">Chi tiết</h4>
+          <ul class="list-group text-center">
+            <li class="list-group-item">Danh mục: {{item.type.name}}</li>
+            <li class="list-group-item">Giá: {{format(item.price)}}</li>
+            <li class="list-group-item">Đã bán: {{item.count}}</li>
+          </ul>
+
+          <div class="text-center">
+            <button class="btn btn-primary btn-block mt-4" (click)="addItemToCart()">Thêm Vào Giỏi hàng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

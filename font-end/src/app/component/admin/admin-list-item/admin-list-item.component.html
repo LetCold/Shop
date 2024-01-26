@@ -1,0 +1,36 @@
+<div class="container">
+  <h2 class="text-center mb-4">Danh sách vật phẩm</h2>
+
+  <table class="table custom-table text-center shadow ">
+    <thead>
+      <tr>
+        <th scope="col">Stt</th>
+        <th scope="col">Ảnh</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Giá</th>
+        <th scope="col">Giới tính</th>
+        <th scope="col">Loại</th>
+        <th scope="col">Đã bán</th>
+        <th scope="col">Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <th scope="row" class="align-middle">{{ item.id }}</th>
+        <td><img [src]="'http://localhost:8080/static/images/'+item.image" alt="Item" class="img-thumbnail" width="70px"></td>
+        <td class="align-middle">{{ item.name }}</td>
+        <td class="align-middle">{{ format(item.price) }}</td>
+        <td class="align-middle">{{ item.gender === 0 ? 'Nam' : 'Nữ' }}</td>
+        <td class="align-middle">{{ item.type.name }}</td>
+        <td class="align-middle">{{ item.count }}</td>
+        <td class="align-middle">
+            <div>
+                <a [routerLink]="'/admin/edit-item/' + item.id" class="btn btn-primary btn-sm">Edit</a>
+                <br>
+                <a class="btn btn-danger btn-sm mt-1" (click)="deleteItem(item.id)">Xóa</a>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

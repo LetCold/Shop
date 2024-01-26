@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 custom-form shadow">
+      <h2 class="text-center mb-4">Add Item Form</h2>
+
+      <form>
+        <div class="form-group">
+          <label for="itemName">Tên sản phẩm:</label>
+          <input type="text" class="form-control" id="itemName" name="itemName" [(ngModel)]="DataForm.name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Giới tính:</label>
+          <select class="form-control" id="gender" name="gender" [(ngModel)]="DataForm.gender" required>
+            <option value="-1" disabled>Chọn Giới Tính</option>
+            <option [ngValue]="0">Nam</option>
+            <option [ngValue]="1">Nữ</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="itemImage">Ảnh sản phẩm:</label>
+          <br>
+          <input type="file" class="form-control-file" id="itemImage" name="itemImage" accept="image/*" (change)="onFileSelected($event)" required>
+        </div>
+        <div class="form-group">
+          <label for="itemType">Loại sản phẩm:</label>
+          <select class="form-control" id="itemType" name="itemType" [(ngModel)]="DataForm.type" required>
+            <option value="-1" disabled>Chọn Loại sản Phẩm</option>
+            <option *ngFor="let typeItem of typeItems" [value]="+typeItem.id">{{typeItem.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="itemDescription">Mô tả sản phẩm:</label>
+          <textarea class="form-control" id="itemDescription" name="itemDescription" [(ngModel)]="DataForm.description" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="itemPrice">Giá tiền:</label>
+          <input type="number" class="form-control" id="itemPrice" name="itemPrice" [(ngModel)]="DataForm.price" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2" (click)="addItem()">Thêm sản phẩm</button>
+      </form>
+    </div>
+  </div>
+</div>
