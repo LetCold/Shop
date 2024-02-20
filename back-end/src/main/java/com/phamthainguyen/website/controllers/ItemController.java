@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.phamthainguyen.website.model.entity.Item;
 import com.phamthainguyen.website.model.request.AddItemRequest;
 import com.phamthainguyen.website.model.request.EditItemRequest;
 import com.phamthainguyen.website.model.response.HomeResponse;
@@ -60,7 +59,6 @@ public class ItemController {
 
     @GetMapping("/home")
     public HomeResponse getTop10(){
-        System.out.println(itemService.getHomePage().toString());
         return itemService.getHomePage();
     }
 }

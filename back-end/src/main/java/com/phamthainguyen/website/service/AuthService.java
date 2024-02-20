@@ -3,6 +3,8 @@ package com.phamthainguyen.website.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -63,6 +65,16 @@ public class AuthService {
         userResponsitory.save(user);
         String token = jwtService.generateToken(user);
         return AuthResponse.builder().type("login").msg("success").token(token).build();
+    }
+
+    public User getUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() != null
+                && authentication.getPrincipal() instanceof User) {
+            User user = (User) authentication.getPrincipal();
+            return user;
+        }
+        return null;
     }
 
 }
